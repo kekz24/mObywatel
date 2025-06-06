@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mObywatel – Dowód osobisty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+      padding: 20px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #0042a5;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .output {
+      background: #e3f2ff;
+      border: 1px solid #0042a5;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>mObywatel – Dowód</h1>
+    
+    <label>Imię:</label>
+    <input type="text" id="imie" placeholder="np. Jan"/>
+
+    <label>Nazwisko:</label>
+    <input type="text" id="nazwisko" placeholder="np. Kowalski"/>
+
+    <label>PESEL:</label>
+    <input type="text" id="pesel" placeholder="np. 01234567890"/>
+
+    <label>Numer dowodu:</label>
+    <input type="text" id="dowod" placeholder="np. ABC123456"/>
+
+    <div class="output" id="podsumowanie">
+      <p><strong>Twój dowód osobisty:</strong></p>
+      <p>Imię: <span id="out-imie">-</span></p>
+      <p>Nazwisko: <span id="out-nazwisko">-</span></p>
+      <p>PESEL: <span id="out-pesel">-</span></p>
+      <p>Nr dowodu: <span id="out-dowod">-</span></p>
+    </div>
+  </div>
+
+  <script>
+    const update = () => {
+      document.getElementById('out-imie').innerText = document.getElementById('imie').value;
+      document.getElementById('out-nazwisko').innerText = document.getElementById('nazwisko').value;
+      document.getElementById('out-pesel').innerText = document.getElementById('pesel').value;
+      document.getElementById('out-dowod').innerText = document.getElementById('dowod').value;
+    };
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', update);
+    });
+  </script>
+</body>
+</html>
